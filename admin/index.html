@@ -7,5 +7,25 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // טוענים לתוך ה-preview את הפונט והעיצוב האמיתיים של האתר,
+    // כדי שהתצוגה המקדימה תיראה בדיוק כמו הכותרת האמיתית ולא כטקסט גנרי
+    CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap');
+    CMS.registerPreviewStyle('/css/styles.css');
+
+    var HeroPreview = createClass({
+      render: function () {
+        var data = this.props.entry.get('data');
+        return h('div', { dir: 'rtl', style: { padding: '32px', fontFamily: "'Heebo', sans-serif" } },
+          h('h1', {}, [
+            data.get('heading_main') + ' ',
+            h('span', { className: 'uk-primary-span', key: 'highlight' }, data.get('heading_highlight'))
+          ])
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate('site', HeroPreview);
+  </script>
 </body>
 </html>

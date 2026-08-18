@@ -78,9 +78,16 @@ touching code, covering only the hero `h1`:
 - `content/site.json` — `{ heading_main, heading_highlight }`, the two
   halves of the hero heading (plain text + the `.uk-primary-span` part).
 - `admin/config.yml` + `admin/index.html` — the Decap CMS admin UI, backed
-  by `git-gateway` (requires the site to be deployed on Netlify with
-  Identity + Git Gateway enabled in its dashboard — not done from this
-  repo, has to happen in the Netlify UI).
+  by the `github` backend authenticating directly against a GitHub OAuth
+  App, proxied through Netlify's built-in OAuth provider
+  (`base_url: https://api.netlify.com`, `auth_endpoint: auth`). This
+  replaced an initial `git-gateway`/Netlify Identity attempt, abandoned
+  after it kept failing with `API_ERROR: Your Git Gateway backend is not
+  returning valid settings` — a known, widely-reported issue tied to
+  Netlify winding down Identity/Git Gateway. The GitHub OAuth App itself
+  and its Client ID/Secret are registered in the Netlify dashboard under
+  Project configuration → OAuth (not in this repo) — not something set up
+  from this repo.
 - In `index.html`, the two hero heading spans carry `data-cms="heading_main"`
   / `data-cms="heading_highlight"` attributes with the current text
   hardcoded as a fallback.
@@ -96,13 +103,6 @@ touching code, covering only the hero `h1`:
 This same pattern (data-cms attribute + fallback text + a field in
 `admin/config.yml` + a key in `content/site.json`) is how to extend CMS
 editing to more of the page, if that's ever wanted.
-
-`index.html` also loads the Netlify Identity widget script + a redirect
-handler in `<head>`. This is required (not optional) for invite/password-
-recovery emails to work: those links land the user on the site's root URL
-with a token in the hash, and the widget has to be present on *that* page
-to catch the token and redirect into `/admin/` — it's not enough to only
-have the widget inside `admin/index.html`.
 
 ## Git workflow
 

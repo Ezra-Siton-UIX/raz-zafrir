@@ -20,6 +20,7 @@
   --fs-about-body:15.5px;
   --fs-desc:14.5px;
   --fs-btn:16px;
+  --fs-card-subtitle:16px;
   --fs-lead:18px;
   --fs-section-lead:17px;
   --fs-btn-lg:17px;
@@ -191,6 +192,10 @@ h2{
 }
 .problem-card .mark{
   font-size:var(--fs-mark); color:var(--navy); font-weight:900; margin-bottom:12px; display:block;
+}
+.problem-card h3{
+  font-size:var(--fs-card-subtitle); font-weight:700; color:var(--green);
+  margin:0 0 8px;
 }
 .problem-card p{margin:0; font-size:var(--fs-body-sm); color:#3c4a5c;}
 

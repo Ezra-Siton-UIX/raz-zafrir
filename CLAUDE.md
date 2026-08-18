@@ -22,6 +22,28 @@ wrap the key/closing phrase in `.uk-primary-span` rather than leaving
 headings a single flat color. The "אודות" (About) heading is the one
 exception — it's just the person's name, so it's left uncolored.
 
+## Typography scale — CSS variables
+
+All `font-size` values live as custom properties in the `:root` block at the
+top of `css/styles.css` (`--fs-h1`, `--fs-h2`, `--fs-eyebrow`, `--fs-nav`,
+`--fs-price`, etc.) instead of being hardcoded on each selector. Rules
+reference them, e.g. `h1{font-size:var(--fs-h1);}`.
+
+This means a responsive tweak is a single override of the variable rather
+than hunting down every selector that uses that size — e.g. the mobile `h1`
+size is set with:
+
+```css
+@media (max-width:560px){
+  :root{ --fs-h1:32px; }
+}
+```
+
+When adding new text styles, add a new `--fs-*` variable rather than a
+literal `px` value, and reuse an existing variable when the size already
+matches an existing role (e.g. `--fs-section-lead` is shared by
+`.section-head p` and `.contact p`, which are both section intro copy).
+
 ## JS structure
 
 All custom JS (GSAP text-split/fade-in animations, header-offset anchor

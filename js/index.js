@@ -133,7 +133,10 @@ function scroll_spy() {
   // סימון קישור הניווט הפעיל (active) לפי הסקשן שנמצא כרגע בתצוגה
   const navLinks = document.querySelectorAll('nav.links a[href^="#"]');
   const navSections = Array.from(navLinks)
-    .map(link => document.querySelector(link.getAttribute('href')))
+    .map(link => {
+      const href = link.getAttribute('href');
+      return href.length > 1 ? document.querySelector(href) : null;
+    })
     .filter(Boolean);
 
   // מצב עדכני לכל סקשן: האם הוא נמצא כרגע ב"אזור הפעיל" של המסך

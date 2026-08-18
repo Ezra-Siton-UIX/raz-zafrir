@@ -70,39 +70,6 @@ fight Lenis) and not native `window.scrollTo({behavior:'smooth'})`. The
 anchor-click handler in `scroll_spy()` calls `lenis.scrollTo(target, {
 offset: -headerHeight })` instead.
 
-## Decap CMS — tried and fully removed
-
-A Decap CMS admin (`admin/config.yml` + `admin/index.html`) was set up and
-gotten fully working end-to-end — GitHub OAuth login (via a GitHub OAuth
-App, proxied through Netlify's built-in OAuth provider), through to a real
-edit committing back to this repo — but has since been **completely
-removed**, including the `admin/` folder itself. Don't re-add it without
-discussing first. Reasoning, kept for context:
-
-- It was only ever wired up for one field (the hero `h1`), via a
-  client-side `fetch` + DOM injection into an existing element before the
-  GSAP split animation ran. That approach doesn't generalize: every new
-  editable field is a hand-wired JSON key + injection point + config
-  field, which is too much ceremony for a one-pager.
-- Content edited that way only reaches Google after a JS-render pass
-  (delayed, not guaranteed), and never reaches non-JS consumers (link
-  previews, simple crawlers) — they'd see whatever's hardcoded in the
-  HTML fallback, which drifts out of sync with the CMS-edited value.
-- Decap only ever commits files to git — it never generates pages. That's
-  fine for overwriting one existing DOM element, but it means Decap can't
-  drive something like a blog on this site either: there's no build step
-  to turn an edited markdown file into an actual new page/URL. A real
-  blog here would need a static site generator (e.g. Eleventy) — which is
-  a bigger step than this site's "no build tools" setup — or a
-  client-side listing/render page carrying the same SEO caveats above,
-  worse per-post.
-
-Conclusion: for a one-pager like this, asking Claude to edit content
-directly beats a CMS. If a real CMS-managed section is ever wanted again
-(most plausibly a blog), it needs an actual rendering story (a generator
-or a framework like Next.js) — not just bolting Decap onto this static
-site — so treat that as a new architecture decision, not a quick add.
-
 ## Git workflow
 
 Every change in this project should be committed and pushed to

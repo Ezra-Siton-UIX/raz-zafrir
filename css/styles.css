@@ -199,6 +199,7 @@ h2{
 }
 .service-name{font-size:20px; font-weight:700; margin:0 0 6px;}
 .service-price{font-size:30px; font-weight:900; margin:0 0 18px; color:#bfe3d1;}
+.service-price .currency{font-size:.6em;}
 .service-card.featured .service-price{color:#fff;}
 .service-desc{
   list-style:none; padding:0; margin:0 0 20px; flex-grow:1;

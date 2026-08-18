@@ -142,6 +142,8 @@ h2{
   font-size:32px; font-weight:900; color:var(--navy);
   margin:0 0 14px; letter-spacing:-.3px; line-height:1.15;
 }
+.uk-primary-span{color:var(--green);}
+.services .uk-primary-span{color:#bfe3d1;}
 .section-head p{font-size:17px; color:#3c4a5c;}
 
 /* ---------- PROBLEM ---------- */

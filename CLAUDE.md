@@ -97,6 +97,13 @@ This same pattern (data-cms attribute + fallback text + a field in
 `admin/config.yml` + a key in `content/site.json`) is how to extend CMS
 editing to more of the page, if that's ever wanted.
 
+`index.html` also loads the Netlify Identity widget script + a redirect
+handler in `<head>`. This is required (not optional) for invite/password-
+recovery emails to work: those links land the user on the site's root URL
+with a token in the hash, and the widget has to be present on *that* page
+to catch the token and redirect into `/admin/` — it's not enough to only
+have the widget inside `admin/index.html`.
+
 ## Git workflow
 
 Every change in this project should be committed and pushed to

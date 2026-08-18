@@ -56,7 +56,8 @@ header.site-nav{
   text-decoration:none;
   display:inline-block;
 }
-.logo span{color:var(--green);}
+.logo .logo-sep{color:var(--green); font-weight:400;}
+.logo .logo-tagline{color:var(--green); font-weight:500;}
 nav.links{display:flex; gap:28px; font-weight:500; font-size:15px;}
 nav.links a{text-decoration:none; opacity:.8; transition:opacity .2s, color .2s;}
 nav.links a:hover{opacity:1;}

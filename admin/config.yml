@@ -10,11 +10,11 @@ public_folder: "/images"
 
 collections:
   - name: "site"
-    label: "תוכן האתר"
+    label: "Site Content"
     files:
       - name: "hero"
-        label: "כותרת ראשית (הירו)"
+        label: "Hero Heading"
         file: "content/site.json"
         fields:
-          - { label: "טקסט רגיל", name: "heading_main", widget: "string" }
-          - { label: "טקסט מודגש (ירוק)", name: "heading_highlight", widget: "string" }
+          - { label: "Main Text", name: "heading_main", widget: "string" }
+          - { label: "Highlighted Text (Green)", name: "heading_highlight", widget: "string" }

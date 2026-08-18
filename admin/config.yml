@@ -8,13 +8,4 @@ backend:
 media_folder: "images"
 public_folder: "/images"
 
-collections:
-  - name: "site"
-    label: "Site Content"
-    files:
-      - name: "hero"
-        label: "Hero Heading"
-        file: "content/site.json"
-        fields:
-          - { label: "Main Text", name: "heading_main", widget: "string" }
-          - { label: "Highlighted Text (Green)", name: "heading_highlight", widget: "string" }
+collections: []

@@ -111,8 +111,24 @@ function trigger_box_animation() {
   });
 }
 
+// ---------- גלילה חלקה (Lenis) ----------
+// מסונכרן עם ה-ticker וה-ScrollTrigger של GSAP כדי שהאנימציות והגלילה
+// יתעדכנו על אותו פריים בדיוק
+function init_smooth_scroll() {
+  const lenis = new Lenis();
+
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  return lenis;
+}
+
 // ---------- ניווט: גלילה לעוגן + סימון קישור פעיל ----------
-function scroll_spy() {
+function scroll_spy(lenis) {
   const siteHeader = document.querySelector('.site-nav');
 
   // גלילה בלחיצה על קישורי עוגן (#id), עם קיזוז לגובה ההדר הדביק
@@ -125,8 +141,7 @@ function scroll_spy() {
 
       e.preventDefault();
       const headerHeight = siteHeader ? siteHeader.offsetHeight : 0;
-      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
+      lenis.scrollTo(target, { offset: -headerHeight });
     });
   });
 
@@ -159,6 +174,7 @@ function scroll_spy() {
 }
 
 // ---------- הפעלה ----------
+const lenis = init_smooth_scroll();
 split_text();
 trigger_box_animation();
-scroll_spy();
+scroll_spy(lenis);

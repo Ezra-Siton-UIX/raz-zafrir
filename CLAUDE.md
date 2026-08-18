@@ -57,10 +57,18 @@ per-section padding overrides.
 
 ## JS structure
 
-All custom JS (GSAP text-split/fade-in animations, header-offset anchor
-scrolling, active-nav-link scrollspy) lives in one file, `js/index.js` —
-kept deliberately unsplit per project preference. Only the three GSAP CDN
-`<script>` tags are separate, since they're third-party libraries.
+All custom JS (GSAP text-split/fade-in animations, Lenis smooth scroll,
+header-offset anchor scrolling, active-nav-link scrollspy) lives in one
+file, `js/index.js` — kept deliberately unsplit per project preference.
+Only the GSAP + Lenis CDN `<script>` tags are separate, since they're
+third-party libraries.
+
+Smooth scrolling is handled by Lenis (`init_smooth_scroll()`), driven off
+`gsap.ticker` and synced to `ScrollTrigger.update` per the standard
+GSAP/Lenis integration — not CSS `scroll-behavior:smooth` (removed, would
+fight Lenis) and not native `window.scrollTo({behavior:'smooth'})`. The
+anchor-click handler in `scroll_spy()` calls `lenis.scrollTo(target, {
+offset: -headerHeight })` instead.
 
 ## Git workflow
 

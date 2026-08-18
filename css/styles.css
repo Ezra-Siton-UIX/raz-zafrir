@@ -33,7 +33,7 @@
   --fs-h1:44px;
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth; background:var(--bg); color-scheme:light;}
+html{background:var(--bg); color-scheme:light;}
 body{
   margin:0;
   background:var(--bg);
@@ -287,8 +287,8 @@ h2{
   text-align:center;
 }
 .contact-inner{max-width:640px; margin:0 auto;}
-.contact h2{margin-bottom:16px;}
-.contact p{font-size:var(--fs-section-lead); color:#2c3a4c; margin:0 0 32px;}
+.contact h2{margin-bottom:24px;}
+.contact p{font-size:var(--fs-section-lead); color:#2c3a4c; margin:0 0 24px;}
 .btn-whatsapp{
   display:inline-flex; align-items:center; gap:12px;
   background:var(--green); color:#fff;

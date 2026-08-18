@@ -70,6 +70,33 @@ fight Lenis) and not native `window.scrollTo({behavior:'smooth'})`. The
 anchor-click handler in `scroll_spy()` calls `lenis.scrollTo(target, {
 offset: -headerHeight })` instead.
 
+## CMS content example (Decap CMS)
+
+There's a minimal, scoped-down proof of concept for editing content without
+touching code, covering only the hero `h1`:
+
+- `content/site.json` — `{ heading_main, heading_highlight }`, the two
+  halves of the hero heading (plain text + the `.uk-primary-span` part).
+- `admin/config.yml` + `admin/index.html` — the Decap CMS admin UI, backed
+  by `git-gateway` (requires the site to be deployed on Netlify with
+  Identity + Git Gateway enabled in its dashboard — not done from this
+  repo, has to happen in the Netlify UI).
+- In `index.html`, the two hero heading spans carry `data-cms="heading_main"`
+  / `data-cms="heading_highlight"` attributes with the current text
+  hardcoded as a fallback.
+- In `js/index.js`, `load_cms_content()` fetches `content/site.json` and
+  overwrites those two spans' text before `split_text()` runs (so the
+  GSAP SplitText animation splits the final content, not a placeholder).
+  Everything below it is now wrapped in an async IIFE that awaits this
+  first. If the fetch fails (e.g. opening `index.html` directly as a
+  `file://` URL during local preview — `fetch` is blocked there), it
+  silently falls back to the hardcoded text — this is expected locally,
+  and only resolves once actually served over http(s) (e.g. on Netlify).
+
+This same pattern (data-cms attribute + fallback text + a field in
+`admin/config.yml` + a key in `content/site.json`) is how to extend CMS
+editing to more of the page, if that's ever wanted.
+
 ## Git workflow
 
 Every change in this project should be committed and pushed to

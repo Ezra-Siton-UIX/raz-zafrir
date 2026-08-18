@@ -173,8 +173,32 @@ function scroll_spy(lenis) {
   navSections.forEach(section => sectionObserver.observe(section));
 }
 
+// ---------- תוכן מנוהל (Decap CMS) ----------
+// טוען את הכותרת הראשית מתוך content/site.json, שאותו עורכים דרך /admin
+// בלי לגעת בקוד. אם הטעינה נכשלת (למשל פתיחה מקומית של הקובץ בלי שרת,
+// ש-fetch חסום בה בגלל file://) פשוט נשארים עם הטקסט הקבוע שכבר ב-HTML.
+async function load_cms_content() {
+  try {
+    const res = await fetch('content/site.json');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    const main = document.querySelector('[data-cms="heading_main"]');
+    const highlight = document.querySelector('[data-cms="heading_highlight"]');
+    if (main && data.heading_main) main.textContent = data.heading_main;
+    if (highlight && data.heading_highlight) highlight.textContent = data.heading_highlight;
+  } catch (e) {
+    // אין קובץ תוכן זמין - נשארים עם ברירת המחדל
+  }
+}
+
 // ---------- הפעלה ----------
-const lenis = init_smooth_scroll();
-split_text();
-trigger_box_animation();
-scroll_spy(lenis);
+// מחכים לתוכן המנוהל לפני ה-split, כדי שהאנימציה תרוץ על הטקסט הסופי
+(async () => {
+  await load_cms_content();
+
+  const lenis = init_smooth_scroll();
+  split_text();
+  trigger_box_animation();
+  scroll_spy(lenis);
+})();

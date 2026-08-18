@@ -220,6 +220,16 @@ h2{
   padding-top:16px; margin-top:auto;
 }
 .service-card.featured .service-fit{color:#dff4e8; border-top-color:rgba(255,255,255,.28);}
+.service-cta{
+  display:block; text-align:center; margin-top:20px;
+  padding:12px 20px; border-radius:12px;
+  background:var(--green); color:#fff;
+  font-weight:700; font-size:14.5px; text-decoration:none;
+  transition:background .2s ease, transform .2s ease;
+}
+.service-cta:hover{background:#245a41; transform:translateY(-2px);}
+.service-card.featured .service-cta{background:#fff; color:var(--green);}
+.service-card.featured .service-cta:hover{background:#eafbf1;}
 
 /* ---------- ABOUT ---------- */
 .about{background:var(--paper);}

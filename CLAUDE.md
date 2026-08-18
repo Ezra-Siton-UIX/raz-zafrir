@@ -70,56 +70,38 @@ fight Lenis) and not native `window.scrollTo({behavior:'smooth'})`. The
 anchor-click handler in `scroll_spy()` calls `lenis.scrollTo(target, {
 offset: -headerHeight })` instead.
 
-## Decap CMS — tried for the hero heading, reverted
+## Decap CMS — tried and fully removed
 
-`admin/config.yml` + `admin/index.html` set up a working Decap CMS admin
-UI, backed by the `github` backend authenticating against a GitHub OAuth
-App, proxied through Netlify's built-in OAuth provider
-(`base_url: https://api.netlify.com`, `auth_endpoint: auth`). This
-replaced an initial `git-gateway`/Netlify Identity attempt, abandoned
-after it kept failing with `API_ERROR: Your Git Gateway backend is not
-returning valid settings` — a known, widely-reported issue tied to
-Netlify winding down Identity/Git Gateway. The GitHub OAuth App itself and
-its Client ID/Secret are registered in the Netlify dashboard under Project
-configuration → OAuth (not in this repo).
+A Decap CMS admin (`admin/config.yml` + `admin/index.html`) was set up and
+gotten fully working end-to-end — GitHub OAuth login (via a GitHub OAuth
+App, proxied through Netlify's built-in OAuth provider), through to a real
+edit committing back to this repo — but has since been **completely
+removed**, including the `admin/` folder itself. Don't re-add it without
+discussing first. Reasoning, kept for context:
 
-**The login/save pipeline is confirmed working end to end** (verified with
-a real edit that committed to GitHub). But it was only ever wired up for
-one field — the hero `h1`, split into `heading_main` / `heading_highlight`
-in a `content/site.json` fetched client-side and injected via
-`data-cms="..."` attributes before `split_text()` ran. That wiring has
-been **removed** (the `h1` is plain hardcoded text again, `load_cms_content()`
-is gone from `js/index.js`, `content/site.json` is deleted, and
-`admin/config.yml` has an empty `collections: []`), because it turned out
-to be a bad fit for a one-pager:
-
-- Decap only ever commits files to git — on a zero-build static site,
-  nothing turns an edited JSON/markdown file into a rendered page, so this
-  only worked at all because `js/index.js` did custom client-side
-  injection into an *existing* element. That doesn't generalize past a
-  couple of one-off fields.
-- Content edited via the CMS only reaches Google after a JS-render pass
+- It was only ever wired up for one field (the hero `h1`), via a
+  client-side `fetch` + DOM injection into an existing element before the
+  GSAP split animation ran. That approach doesn't generalize: every new
+  editable field is a hand-wired JSON key + injection point + config
+  field, which is too much ceremony for a one-pager.
+- Content edited that way only reaches Google after a JS-render pass
   (delayed, not guaranteed), and never reaches non-JS consumers (link
-  previews, simple crawlers) at all — they'd see whatever's hardcoded in
-  `index.html`, which drifts out of sync with the CMS-edited value.
-- One field per section = one JSON key + one `data-cms` attribute + one
-  `config.yml` field, by hand, every time. Too much ceremony for what a
-  one-pager needs.
+  previews, simple crawlers) — they'd see whatever's hardcoded in the
+  HTML fallback, which drifts out of sync with the CMS-edited value.
+- Decap only ever commits files to git — it never generates pages. That's
+  fine for overwriting one existing DOM element, but it means Decap can't
+  drive something like a blog on this site either: there's no build step
+  to turn an edited markdown file into an actual new page/URL. A real
+  blog here would need a static site generator (e.g. Eleventy) — which is
+  a bigger step than this site's "no build tools" setup — or a
+  client-side listing/render page carrying the same SEO caveats above,
+  worse per-post.
 
-Conclusion: for this site, asking Claude to edit content directly is a
-better fit than a CMS. Decap's actual sweet spot is content with a natural
-"one entry = one file/page" shape — e.g. a blog — where a real static site
-generator renders each entry into its own page at build time. This site
-has no build step, so a blog isn't a `config.yml` collection away either;
-it would need one of: (a) introducing a generator like Eleventy, (b) a
-client-side blog listing/post-render page (same SEO/staleness caveats as
-above, worse per-post), or (c) wiring up the Decap collection without
-real rendering, just to try the editing UX. Not decided/built as of this
-writing — ask before assuming which path, if any, is wanted.
-
-The Netlify OAuth App + GitHub backend setup itself stays valid and
-working if CMS editing is revisited for something that's actually a good
-fit (like a blog) — no need to redo that part.
+Conclusion: for a one-pager like this, asking Claude to edit content
+directly beats a CMS. If a real CMS-managed section is ever wanted again
+(most plausibly a blog), it needs an actual rendering story (a generator
+or a framework like Next.js) — not just bolting Decap onto this static
+site — so treat that as a new architecture decision, not a quick add.
 
 ## Git workflow
 

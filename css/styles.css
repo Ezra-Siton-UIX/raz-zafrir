@@ -161,12 +161,16 @@ h2{
 .problem-card p{margin:0; font-size:15px; color:#3c4a5c;}
 
 /* ---------- SOLUTION ---------- */
+.solution{padding-bottom:0;}
 .solution-inner{
   max-width:900px; margin:0 auto; text-align:center;
 }
 .solution-inner h2{font-size:34px;}
 .solution-inner p.big{
   font-size:19px; color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
+}
+.solution-image{
+  display:block; margin:56px auto 0; max-width:100%;
 }
 
 /* ---------- SERVICES ---------- */

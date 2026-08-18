@@ -99,7 +99,7 @@ nav.links a.active{color:var(--green);}
 }
 @media (max-width:720px){
   nav.links{display:none;}
-  .logo{display:flex; flex-direction:column; align-items:flex-start; gap:2px; line-height:1.25;}
+  .logo{display:flex; flex-direction:column; align-items:center; gap:2px; line-height:1.25;}
   .logo .logo-sep{display:none;}
   .logo .logo-tagline{display:block; font-size:var(--fs-tiny);}
 }
@@ -165,7 +165,8 @@ h1{
 @keyframes draw{ to{stroke-dashoffset:0;} }
 
 /* ---------- SECTION SHELL ---------- */
-section{padding:88px 24px;}
+.uk-section{padding:88px 24px;}
+.p-b-0{padding-bottom:0;}
 section[id]{scroll-margin-top:0;}
 .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
 .section-head .eyebrow{margin-bottom:16px;}
@@ -194,7 +195,6 @@ h2{
 .problem-card p{margin:0; font-size:var(--fs-body-sm); color:#3c4a5c;}
 
 /* ---------- SOLUTION ---------- */
-.solution{padding-bottom:0;}
 .solution-inner{
   max-width:900px; margin:0 auto; text-align:center;
 }
@@ -203,7 +203,7 @@ h2{
   font-size:var(--fs-body-lg); color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
 }
 .solution-image{
-  display:block; margin:56px auto 0; max-width:100%;
+  display:block; width:100%; margin:56px auto 0;
 }
 
 /* ---------- SERVICES ---------- */

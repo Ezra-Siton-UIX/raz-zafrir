@@ -44,6 +44,17 @@ literal `px` value, and reuse an existing variable when the size already
 matches an existing role (e.g. `--fs-section-lead` is shared by
 `.section-head p` and `.contact p`, which are both section intro copy).
 
+## Section spacing — `.uk-section` / `.p-b-0`
+
+Every `<section>` gets its base 88px top/bottom padding from an explicit
+`.uk-section` class (not a bare `section{}` element selector), so it's
+opt-in and visible in the markup. A section that needs no bottom padding
+(currently `.solution`, which has an image flush against its bottom edge)
+adds the `.p-b-0` utility class alongside it, instead of a one-off
+`.solution{padding-bottom:0;}` override. Keep using this pair — explicit
+`.uk-section` class + `.p-b-0` utility — rather than reintroducing
+per-section padding overrides.
+
 ## JS structure
 
 All custom JS (GSAP text-split/fade-in animations, header-offset anchor

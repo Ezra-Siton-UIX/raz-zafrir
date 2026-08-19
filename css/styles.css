@@ -54,9 +54,13 @@ img{max-width:100%;display:block;}
 }
 
 /* focus visibility */
+/* Accessibility: two-tone focus ring (white + navy) instead of a plain
+   green outline, which would blend into and disappear on our green
+   buttons (nav-cta, btn-whatsapp, service-cta, float-whatsapp, etc). */
 a:focus-visible, button:focus-visible{
-  outline:3px solid var(--green);
-  outline-offset:3px;
+  outline:3px solid #fff;
+  outline-offset:2px;
+  box-shadow:0 0 0 5px var(--navy);
 }
 
 @media (prefers-reduced-motion: reduce){

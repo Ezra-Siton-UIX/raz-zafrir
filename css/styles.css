@@ -144,7 +144,17 @@ h1{
 }
 .btn-primary:hover{background:var(--green); transform:translateY(-2px);}
 
-/* signature graphic: noise -> signal line */
+.hero-photo{
+  aspect-ratio:4/5; border-radius:20px;
+  background:linear-gradient(160deg, var(--navy), var(--green));
+  overflow:hidden;
+}
+.hero-photo img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+/* signature graphic: noise -> signal line (מוסתר כרגע, ראו hero-photo) */
+.hero-graph{display:none;}
 .signal-wrap{
   background:var(--paper);
   border:1px solid var(--line);

@@ -77,7 +77,6 @@ header.site-nav{
 }
 .nav-inner{
   display:flex; align-items:center; justify-content:space-between;
-  padding:16px 24px;
 }
 .logo{
   font-weight:900; font-size:var(--fs-logo); letter-spacing:.2px;
@@ -177,6 +176,7 @@ h1{
 
 /* ---------- SECTION SHELL ---------- */
 .uk-section{padding:88px 24px;}
+.uk-section.medium{padding:24px 24px;}
 .p-b-0{padding-bottom:0;}
 section[id]{scroll-margin-top:0;}
 .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}

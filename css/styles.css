@@ -110,7 +110,6 @@ nav.links a.active{color:var(--green);}
 
 /* ---------- HERO ---------- */
 .hero{
-  padding:96px 24px 64px;
   position:relative;
   overflow:hidden;
 }

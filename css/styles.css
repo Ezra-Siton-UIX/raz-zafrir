@@ -96,9 +96,13 @@ header.site-nav{
 }
 .logo .logo-sep{color:var(--green); font-weight:400;}
 .logo .logo-tagline{color:var(--green); font-weight:500;}
-nav.links{display:flex; gap:28px; font-weight:500; font-size:var(--fs-nav);}
-nav.links a{text-decoration:none; opacity:.8; transition:opacity .2s, color .2s;}
-nav.links a:hover{opacity:1;}
+nav.links{display:flex; gap:4px; font-weight:500; font-size:var(--fs-nav);}
+nav.links a{
+  text-decoration:none; opacity:.8;
+  padding:8px 14px; border-radius:8px;
+  transition:opacity .2s, color .2s, background .2s;
+}
+nav.links a:hover{opacity:1; background:rgba(27,46,75,.07);}
 nav.links a.active{color:var(--green);}
 .nav-cta{
   display:inline-block;

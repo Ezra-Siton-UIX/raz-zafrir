@@ -46,7 +46,13 @@ body{
 }
 a{color:inherit;}
 img{max-width:100%;display:block;}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+/* uk-container: horizontal max-width + centering + side padding.
+   Kept separate from uk-section, which only ever controls vertical
+   (top/bottom) section padding - the two are independent concerns. */
+.uk-container{max-width:1120px; margin:0 auto; padding:0 24px;}
+@media (max-width:720px){
+  .uk-container{padding:0 16px;}
+}
 
 /* גופנים רספונסיביים: דריסת המשתנים במקום כל סלקטור בנפרד */
 @media (max-width:560px){
@@ -147,7 +153,7 @@ h1{
 .btn-primary:hover{background:var(--green); transform:translateY(-2px);}
 
 .hero-photo img{
-  display:block; width:100%; aspect-ratio:4/5;
+  display:block; width:100%; aspect-ratio:5/6;
   object-fit:cover; border-radius:20px;
   background:linear-gradient(160deg, var(--navy), var(--green));
 }

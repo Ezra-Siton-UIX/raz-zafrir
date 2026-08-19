@@ -46,13 +46,13 @@ body{
 }
 a{color:inherit;}
 img{max-width:100%;display:block;}
-/* uk-container: horizontal max-width + centering + side padding.
-   Kept separate from uk-section, which only ever controls vertical
-   (top/bottom) section padding - the two are independent concerns. */
-.uk-container{max-width:1120px; margin:0 auto; padding:0 24px;}
-@media (max-width:720px){
-  .uk-container{padding:0 16px;}
-}
+/* uk-container: pure horizontal max-width + centering, no padding of
+   its own - matches every other "-inner" wrapper (hero-inner,
+   about-inner, etc), which all rely on their parent uk-section for edge
+   padding. Adding padding here too would double up wherever a
+   uk-container sits inside a uk-section (e.g. the header), pushing its
+   content out of alignment with the rest of the page. */
+.uk-container{max-width:1120px; margin:0 auto;}
 
 /* גופנים רספונסיביים: דריסת המשתנים במקום כל סלקטור בנפרד */
 @media (max-width:560px){
@@ -187,6 +187,9 @@ h1{
 /* ---------- SECTION SHELL ---------- */
 .uk-section{padding:88px 24px;}
 .uk-section.medium{padding:24px 24px;}
+@media (max-width:720px){
+  .uk-section{padding-inline:16px;}
+}
 .p-b-0{padding-bottom:0;}
 section[id]{scroll-margin-top:0;}
 .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}

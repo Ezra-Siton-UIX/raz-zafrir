@@ -53,6 +53,8 @@ img{max-width:100%;display:block;}
    uk-container sits inside a uk-section (e.g. the header), pushing its
    content out of alignment with the rest of the page. */
 .uk-container{max-width:1120px; margin:0 auto;}
+.uk-container.medium{max-width:960px;}
+.uk-container.narrow{max-width:640px;}
 
 /* גופנים רספונסיביים: דריסת המשתנים במקום כל סלקטור בנפרד */
 @media (max-width:560px){
@@ -124,7 +126,6 @@ nav.links a.active{color:var(--green); background:rgba(27,46,75,.04);}
   overflow:hidden;
 }
 .hero-inner{
-  max-width:1120px; margin:0 auto;
   display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
 }
 @media (max-width:860px){
@@ -192,7 +193,7 @@ h1{
 }
 .p-b-0{padding-bottom:0;}
 section[id]{scroll-margin-top:0;}
-.section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+.section-head{margin-bottom:48px; text-align:center;}
 .section-head .eyebrow{margin-bottom:16px;}
 h2{
   font-size:var(--fs-h2); font-weight:900; color:var(--navy);
@@ -205,7 +206,6 @@ h2{
 /* ---------- PROBLEM ---------- */
 .problem{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
 .problem-grid{
-  max-width:920px; margin:0 auto;
   display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
 }
 @media (max-width:720px){ .problem-grid{grid-template-columns:1fr;} }
@@ -224,7 +224,7 @@ h2{
 
 /* ---------- SOLUTION ---------- */
 .solution-inner{
-  max-width:900px; margin:0 auto; text-align:center;
+  text-align:center;
 }
 .solution-inner h2{font-size:var(--fs-h2-lg);}
 .solution-inner p.big{
@@ -241,7 +241,6 @@ h2{
 .services .section-head p{color:#c7d0dc;}
 .services-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  max-width:1120px; margin:0 auto;
 }
 @media (max-width:900px){ .services-grid{grid-template-columns:1fr;} }
 .service-card{
@@ -293,7 +292,6 @@ h2{
 /* ---------- ABOUT ---------- */
 .about{background:var(--paper);}
 .about-inner{
-  max-width:1000px; margin:0 auto;
   display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:center;
 }
 @media (max-width:800px){ .about-inner{grid-template-columns:1fr;} }
@@ -314,7 +312,6 @@ h2{
   background:var(--green-soft);
   text-align:center;
 }
-.contact-inner{max-width:640px; margin:0 auto;}
 .contact h2{margin-bottom:24px;}
 .contact p{font-size:var(--fs-section-lead); color:#2c3a4c; margin:0 0 24px;}
 .btn-whatsapp{

@@ -218,7 +218,7 @@ h2{
   font-size:var(--fs-body-lg); color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
 }
 .solution-image{
-  display:block; width:100%; margin:56px auto 0;
+  display:block; width:100%; margin:0 auto;
 }
 
 /* ---------- SERVICES ---------- */

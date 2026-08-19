@@ -102,7 +102,7 @@ nav.links a{
   padding:8px 14px; border-radius:8px;
   transition:opacity .2s, color .2s, background .2s;
 }
-nav.links a:hover{opacity:1; background:rgba(27,46,75,.07);}
+nav.links a:hover{opacity:1; background:rgba(27,46,75,.04);}
 nav.links a.active{color:var(--green);}
 .nav-cta{
   display:inline-block;

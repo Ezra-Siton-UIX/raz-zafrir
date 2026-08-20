@@ -1,0 +1,8 @@
+{
+  "name": "raz-zafrir",
+  "private": true,
+  "dependencies": {
+    "google-auth-library": "^9.14.1",
+    "google-spreadsheet": "^4.1.4"
+  }
+}

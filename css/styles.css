@@ -30,7 +30,6 @@
   --fs-card-title:20px;
   --fs-price:30px;
   --fs-h2:32px;
-  --fs-h2-lg:34px;
   --fs-h1:44px;
 }
 *{box-sizing:border-box;}
@@ -96,7 +95,7 @@ header.site-nav{
   text-decoration:none;
   display:inline-block;
 }
-.logo .logo-sep{color:var(--green); font-weight:400;}
+.logo .logo-sep{color:var(--navy); opacity:.5; font-weight:400;}
 .logo .logo-tagline{color:var(--green); font-weight:500;}
 nav.links{display:flex; gap:4px; font-weight:500; font-size:var(--fs-nav);}
 nav.links a{
@@ -226,7 +225,6 @@ h2{
 .solution-inner{
   text-align:center;
 }
-.solution-inner h2{font-size:var(--fs-h2-lg);}
 .solution-inner p.big{
   font-size:var(--fs-body-lg); color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
 }

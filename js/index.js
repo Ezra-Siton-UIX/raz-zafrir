@@ -36,7 +36,10 @@ function split_text() {
       opacity: 1,
       duration: 0.7,
       ease: gsap_setting.easing_type,
-      stagger: 0.2
+      stagger: 0.2,
+      // מחזירים את ה-HTML המקורי (טקסט רגיל) אחרי שהאנימציה נגמרת -
+      // פחות DOM מיותר, ונגישות אמינה יותר מהסתמכות קבועה על aria-hidden/aria-label
+      onComplete: () => split_hero.revert()
     });
   }
 
@@ -80,7 +83,9 @@ function split_text() {
             trigger: closest_section,
             markers: false,
             scrub: false,
-          }
+          },
+          // ראו הערה למעלה ב-split_hero - אותו היגיון: מחזירים טקסט רגיל בסיום
+          onComplete: () => instance.revert()
         });
       }
     });

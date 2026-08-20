@@ -162,28 +162,6 @@ h1{
   background:linear-gradient(160deg, var(--navy), var(--green));
 }
 
-/* signature graphic: noise -> signal line (מוסתר כרגע, ראו hero-photo) */
-.hero-graph{display:none;}
-.signal-wrap{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:28px 24px 20px;
-}
-.signal-caption{
-  display:flex; justify-content:space-between;
-  font-size:var(--fs-tiny); font-weight:700; color:#8b93a1; margin-top:10px;
-  letter-spacing:.3px;
-}
-.signal-caption span:first-child{color:#9aa2ae;}
-.signal-caption span:last-child{color:var(--green);}
-#signal-path{
-  stroke-dasharray:900;
-  stroke-dashoffset:900;
-  animation:draw 2.4s ease-out .3s forwards;
-}
-@keyframes draw{ to{stroke-dashoffset:0;} }
-
 /* ---------- SECTION SHELL ---------- */
 .uk-section{padding:88px 24px;}
 .uk-section.medium{padding:24px 24px;}

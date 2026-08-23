@@ -24,7 +24,6 @@
   --fs-lead:18px;
   --fs-section-lead:17px;
   --fs-btn-lg:17px;
-  --fs-body-lg:19px;
   --fs-mark:22px;
   --fs-logo:20px;
   --fs-card-title:20px;
@@ -204,7 +203,7 @@ h2{
   text-align:center;
 }
 .solution-inner p.big{
-  font-size:var(--fs-body-lg); color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
+  font-size:var(--fs-section-lead); color:#2c3a4c; max-width:64ch; margin:0 auto 8px;
 }
 .solution-image{
   display:block; width:100%; height:auto; margin:0 auto;

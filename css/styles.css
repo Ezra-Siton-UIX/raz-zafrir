@@ -300,8 +300,13 @@ h2{
 .certification-badge{
   width:88px; height:88px; border-radius:12px; flex-shrink:0; object-fit:cover;
 }
-.certification-icon{display:inline-flex; color:var(--green); margin-bottom:6px;}
-.certification-icon svg{width:18px; height:18px;}
+.certification-tag{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:var(--fs-tiny); font-weight:700; letter-spacing:.4px;
+  color:var(--green); background:var(--green-soft);
+  padding:5px 12px; border-radius:999px; margin-bottom:10px;
+}
+.certification-tag svg{width:13px; height:13px;}
 .certification-info h3{
   font-size:var(--fs-card-subtitle); font-weight:700; color:var(--navy); margin:0 0 6px;
   overflow-wrap:break-word;

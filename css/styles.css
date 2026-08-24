@@ -284,9 +284,16 @@ h2{
 .about p{color:#33414f; font-size:var(--fs-about-body); margin:0 0 16px;}
 
 /* ---------- CERTIFICATION ---------- */
-/* Standalone block (not a <section>) so it's easy to relocate; still
-   uses .uk-section + .uk-container.narrow for spacing/gutters like
-   every other block on the page, instead of one-off width math. */
+/* Standalone block (not a <section>) so it's easy to relocate; uses
+   .uk-container.narrow on the card itself for width/centering, plus a
+   fixed 24px / hr / 24px rhythm below the About text instead of the
+   bigger .uk-section spacing. */
+.certification-shell{padding:24px 24px 64px;}
+@media (max-width:720px){ .certification-shell{padding-inline:16px;} }
+.certification-divider{
+  border:none; border-top:1px solid var(--line);
+  max-width:640px; margin:0 auto 24px;
+}
 .certification{
   display:flex; align-items:center; gap:14px;
   padding:16px;

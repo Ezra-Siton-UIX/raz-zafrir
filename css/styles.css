@@ -282,6 +282,32 @@ h2{
 .about .role{color:var(--green); font-weight:700; font-size:var(--fs-body-sm); margin-bottom:20px;}
 .about p{color:#33414f; font-size:var(--fs-about-body); margin:0 0 16px;}
 
+/* ---------- CERTIFICATION ---------- */
+/* Standalone block (not a <section>) so it's easy to relocate; still
+   uses .uk-section + .uk-container.narrow for spacing/gutters like
+   every other block on the page, instead of one-off width math. */
+.certification{
+  display:flex; align-items:center; gap:20px;
+  padding:24px;
+  border:1px solid var(--line); border-radius:16px;
+  background:var(--paper);
+}
+@media (max-width:560px){
+  .certification{flex-direction:column; text-align:center;}
+  .certification-info{width:100%;}
+}
+.certification-info{min-width:0;}
+.certification-badge{
+  width:88px; height:88px; border-radius:12px; flex-shrink:0; object-fit:cover;
+}
+.certification-icon{display:inline-flex; color:var(--green); margin-bottom:6px;}
+.certification-icon svg{width:18px; height:18px;}
+.certification-info h3{
+  font-size:var(--fs-card-subtitle); font-weight:700; color:var(--navy); margin:0 0 6px;
+  overflow-wrap:break-word;
+}
+.certification-info p{font-size:var(--fs-desc); color:#3c4a5c; margin:0; overflow-wrap:break-word;}
+
 /* ---------- CONTACT ---------- */
 .contact{
   background:var(--green-soft);

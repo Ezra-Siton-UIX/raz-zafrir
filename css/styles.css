@@ -268,7 +268,7 @@ h2{
 /* ---------- ABOUT ---------- */
 .about{background:var(--paper);}
 .about-inner{
-  display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:center;
+  display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; align-items:start;
 }
 @media (max-width:800px){ .about-inner{grid-template-columns:1fr;} }
 .about-photo{
@@ -292,9 +292,6 @@ h2{
 }
 .certification{
   display:flex; align-items:center; gap:14px;
-  padding:16px;
-  border:1px solid var(--line); border-radius:14px;
-  background:var(--paper);
 }
 @media (max-width:560px){
   .certification{flex-direction:column; text-align:center;}

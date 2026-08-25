@@ -299,7 +299,7 @@ h2{
 }
 .certification-info{min-width:0;}
 .certification-badge{
-  width:100px; height:100px; border-radius:12px; flex-shrink:0; object-fit:cover;
+  width:115px; height:115px; border-radius:12px; flex-shrink:0; object-fit:cover;
 }
 .certification-tag{
   display:inline-flex; align-items:center; gap:6px;
